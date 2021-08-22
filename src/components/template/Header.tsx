@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Title from "./Title";
 
 interface IProps {
@@ -8,6 +9,9 @@ interface IProps {
 const Header = ({ title, subtitle }: IProps) => {
   return (
     <div>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <Title title={title} subtitle={subtitle} />
     </div>
   );

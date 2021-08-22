@@ -10,10 +10,12 @@ interface IProps {
 
 const Layout = ({ title, subtitle, children }: IProps) => {
   return (
-    <div>
-      <Header title={title} subtitle={subtitle} />
+    <div className={`dark flex h-screen w-screen`}>
       <SiderMenu />
-      <Content>{children}</Content>
+      <div className={`flex flex-col bg-gray-300 w-full p-7 dark:bg-gray-800`}>
+        <Header title={title} subtitle={subtitle} />
+        <Content>{children}</Content>
+      </div>
     </div>
   );
 };
