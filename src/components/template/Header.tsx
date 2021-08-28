@@ -1,4 +1,6 @@
 import Head from "next/head";
+import useAppData from "../../data/hook/useAppData";
+import ChangeThemeButton from "./ChangeThemeButton";
 import Title from "./Title";
 
 interface IProps {
@@ -7,12 +9,15 @@ interface IProps {
 }
 
 const Header = ({ title, subtitle }: IProps) => {
+  const { theme, changeTheme } = useAppData();
+
   return (
-    <div>
-      <Head>
-        <title>{title}</title>
-      </Head>
+    <div className={`flex `}>
       <Title title={title} subtitle={subtitle} />
+
+      <div className={`flex flex-grow justify-end`}>
+        <ChangeThemeButton theme={theme} changeTheme={changeTheme} />
+      </div>
     </div>
   );
 };
